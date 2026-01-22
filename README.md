@@ -1,20 +1,64 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Daniel Mercede
 
-# Run and deploy your AI Studio app
+Systems architect and technology executive building at the intersection of logic, responsibility, and human dynamics.
 
-This contains everything you need to run your app locally.
+This repository hosts the source for **danielmercede.com**, a long-form biographical and contextual site intended to provide narrative depth and professional grounding beyond résumé or profile summaries.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1r-GcfE3cdnFrcVbgfR3X6cvMRmP_XMX2
+---
 
-## Run Locally
+## Purpose
 
-**Prerequisites:**  Node.js
+This site exists to offer **context**, not promotion.
 
+It documents the experiences, environments, and perspectives that inform the systems I build today — with an emphasis on operational realism, governance, and long-term system integrity.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+This is not a portfolio, product site, or marketing surface.
+
+---
+
+## Canonical Links
+
+- Primary site: https://danmercede.com  
+- Identity verification: https://danmercede.info  
+- LinkedIn: https://www.linkedin.com/in/danmercede  
+- Orion Apex Capital: https://orionapexcapital.com  
+- Cosmocrat: https://cosmocrat.ai  
+
+---
+
+## Scope
+
+The content on danielmercede.com focuses on:
+
+- Personal and professional background  
+- Geographic and cultural context  
+- Career arc and operational experience  
+- Philosophy around systems, governance, and responsibility  
+
+It intentionally avoids overlap with product, platform, or commercial messaging found on affiliated sites.
+
+---
+
+## Related Projects
+
+Active work and platforms are maintained under separate repositories and domains, including:
+
+- **Cosmocrat** — Governed AI Operating System  
+- **Orion Intelligence Agency** — Enterprise AI reliability engineering  
+- **ReplyBy** — Communication automation product  
+- **Apex Trading Systems** — Internal execution system  
+
+These are referenced for context only and are not managed from this repository.
+
+---
+
+## Notes
+
+This repository is intentionally minimal.
+
+No issues, feature requests, or pull requests are expected or accepted unless explicitly coordinated.
+
+---
+
+© 2026 Daniel Mercede  
+Jurisdiction: United States
