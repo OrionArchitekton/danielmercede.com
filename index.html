@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Daniel Mercede — Systems Architect & Technology Executive</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="description" content="Long-form biography and professional context for Daniel Mercede, a systems architect building at the intersection of logic, responsibility, and human dynamics." />
-    <script type="application/ld+json">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniel Mercede — Systems Architect & Technology Executive</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="Daniel Mercede" />
+  <meta property="og:title" content="Daniel Mercede" />
+  <meta property="og:description"
+    content="Systems architect. Operational realist. Building at the intersection of logic, responsibility, and human dynamics." />
+  <meta property="og:url" content="https://danielmercede.com" />
+  <meta property="og:image"
+    content="https://storage.googleapis.com/cosmocrat/cosmocrat_logos_graphics/contextual/dan-mercede-founder-working-portait.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Daniel Mercede" />
+  <meta name="twitter:description" content="Systems architect. Operational realist." />
+  <meta name="twitter:image"
+    content="https://storage.googleapis.com/cosmocrat/cosmocrat_logos_graphics/contextual/dan-mercede-founder-working-portait.webp" />
+
+  <meta name="description"
+    content="Long-form biography and professional context for Daniel Mercede, a systems architect building at the intersection of logic, responsibility, and human dynamics." />
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -35,54 +55,55 @@
       }
     }
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
-      
-      /* Custom utility for smooth fade-in */
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+    /* Custom utility for smooth fade-in */
+    .fade-in-up {
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media print {
       .fade-in-up {
-        animation: fadeInUp 1s ease-out forwards;
-        opacity: 0;
-        transform: translateY(20px);
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
       }
 
-      @keyframes fadeInUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+      body {
+        background-color: white !important;
+        color: black !important;
       }
-
-      @media print {
-        .fade-in-up {
-          animation: none !important;
-          opacity: 1 !important;
-          transform: none !important;
-        }
-        body {
-          background-color: white !important;
-          color: black !important;
-        }
-      }
-    </style>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['Lora', 'serif'],
-            },
-            colors: {
-              neutral: {
-                850: '#1f1f1f',
-                900: '#171717',
-              }
-            }
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Lora', 'serif'],
           },
+          colors: {
+            neutral: {
+              850: '#1f1f1f',
+              900: '#171717',
+            }
+          }
         },
-      }
-    </script>
+      },
+    }
+  </script>
   <script type="importmap">
 {
   "imports": {
@@ -93,8 +114,10 @@
 }
 </script>
 </head>
-  <body class="bg-[#FCFCFC] text-neutral-800 antialiased selection:bg-neutral-200 selection:text-neutral-900">
-    <div id="root"></div>
-      <script type="module" src="/index.tsx"></script>
-  </body>
+
+<body class="bg-[#FCFCFC] text-neutral-800 antialiased selection:bg-neutral-200 selection:text-neutral-900">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
