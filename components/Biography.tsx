@@ -47,7 +47,8 @@ export const Biography: React.FC = () => {
             <img
               src="https://storage.googleapis.com/cosmocrat/cosmocrat_logos_graphics/contextual/dan-mercede-founder-working-portait.webp"
               alt="Dan Mercede Founder Cosmocrat"
-              className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 ease-out"
+              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-out"
+              style={{ objectPosition: '50% 10%' }}
             />
           </div>
         </FadeIn>
