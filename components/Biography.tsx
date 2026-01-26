@@ -46,7 +46,7 @@ export const Biography: React.FC = () => {
           <div className="mb-10 aspect-video w-full overflow-hidden rounded-sm">
             <img
               src="https://storage.googleapis.com/cosmocrat/cosmocrat_logos_graphics/contextual/dan-mercede-founder-working-portait.webp"
-              alt="Dan Mercede Working"
+              alt="Dan Mercede Founder Cosmocrat"
               className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 ease-out"
             />
           </div>
@@ -126,7 +126,15 @@ export const Biography: React.FC = () => {
       </div>
 
       {/* Footer / Context */}
-      <footer className="mt-20 md:mt-32 pt-12 border-t border-neutral-100 fade-in-up print:hidden" style={{ animationDelay: '1500ms' }}>
+      <footer className="mt-20 md:mt-32 pt-12 border-t border-neutral-100 fade-in-up print:hidden flex flex-col md:flex-row justify-between items-end gap-4" style={{ animationDelay: '1500ms' }}>
+        <a
+          href="https://danmercede.com"
+          target="_blank"
+          rel="noreferrer"
+          className="text-neutral-400 font-sans text-sm tracking-tight italic hover:text-neutral-600 transition-colors"
+        >
+          Context: danmercede.com
+        </a>
         <p className="text-neutral-400 font-sans text-sm tracking-tight text-right italic">
           This page exists to provide context for the systems I build today.
         </p>
