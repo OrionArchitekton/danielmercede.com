@@ -45,7 +45,7 @@ export const Biography: React.FC = () => {
         <FadeIn delay={250}>
           <div className="mb-10 aspect-video w-full overflow-hidden rounded-sm">
             <img
-              src="https://storage.googleapis.com/cosmocrat/cosmocrat_logos_graphics/contextual/dan-mercede-founder-working-portait.webp"
+              src="/dan-mercede-founder-working-portait.webp"
               alt="Dan Mercede Founder Cosmocrat"
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-out"
               style={{ objectPosition: '50% 36%' }}
