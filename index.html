@@ -34,26 +34,22 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Daniel Mercede",
-      "url": "https://www.danielmercede.com",
-      "sameAs": [
-        "https://www.danmercede.com",
-        "https://www.danmercede.info",
-        "https://www.linkedin.com/in/danmercede",
-        "https://orionapexcapital.com",
-        "https://cosmocrat.ai"
-      ],
-      "jobTitle": "Systems Architect",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Orion Apex Capital",
-        "url": "https://orionapexcapital.com"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "US"
-      }
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://www.danielmercede.com/#webpage",
+          "url": "https://www.danielmercede.com/",
+          "name": "Daniel Mercede — Bio",
+          "about": { "@id": "https://www.danmercede.com/#person" },
+          "isPartOf": { "@id": "https://www.danielmercede.com/#website" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.danielmercede.com/#website",
+          "url": "https://www.danielmercede.com/",
+          "publisher": { "@id": "https://www.danmercede.com/#person" }
+        }
+      ]
     }
     </script>
   <script src="https://cdn.tailwindcss.com"></script>
