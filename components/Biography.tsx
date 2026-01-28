@@ -129,7 +129,7 @@ export const Biography: React.FC = () => {
       {/* Footer / Context */}
       <footer className="mt-20 md:mt-32 pt-12 border-t border-neutral-100 fade-in-up print:hidden flex flex-col md:flex-row justify-between items-end gap-4" style={{ animationDelay: '1500ms' }}>
         <a
-          href="https://danmercede.com"
+          href="https://www.danmercede.com"
           target="_blank"
           rel="noreferrer"
           className="text-neutral-400 font-sans text-sm tracking-tight italic hover:text-neutral-600 transition-colors"
