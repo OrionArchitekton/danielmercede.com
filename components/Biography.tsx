@@ -1,5 +1,6 @@
 import React from 'react';
 import { PullQuote } from './PullQuote';
+import { getImageMeta } from '../constants';
 
 const FadeIn: React.FC<{ delay?: number; children: React.ReactNode }> = ({ delay = 0, children }) => (
   <div
@@ -14,6 +15,9 @@ export const Biography: React.FC = () => {
   const handlePrint = () => {
     window.print();
   };
+
+  const portraitSrc = "/dan-mercede-founder-working-portrait.png";
+  const portraitMeta = getImageMeta(portraitSrc);
 
   return (
     <article className="max-w-none">
@@ -45,12 +49,13 @@ export const Biography: React.FC = () => {
         <FadeIn delay={250}>
           <div className="mb-10 aspect-video w-full overflow-hidden rounded-sm">
             <img
-              src="/dan-mercede-founder-working-portait.webp"
-              alt="Dan Mercede Founder Cosmocrat"
+              src={portraitSrc}
+              alt={portraitMeta.alt}
               className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-out"
               style={{ objectPosition: '50% 36%' }}
             />
           </div>
+
         </FadeIn>
 
         <FadeIn delay={300}>
