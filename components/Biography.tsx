@@ -39,7 +39,7 @@ export const Biography: React.FC = () => {
 
         <div className="fade-in-up" style={{ animationDelay: '200ms' }}>
           <p className="font-serif text-lg text-neutral-600 italic leading-relaxed pl-1 print:text-black">
-            Systems architect. Operational realist. Building at the intersection of logic, responsibility, and human dynamics.
+            Runtime governance architect. Building governed AI systems that fail closed, enforce authority, and generate audit-grade receipts.
           </p>
         </div>
       </header>
@@ -132,18 +132,33 @@ export const Biography: React.FC = () => {
       </div>
 
       {/* Footer / Context */}
-      <footer className="mt-20 md:mt-32 pt-12 border-t border-neutral-100 fade-in-up print:hidden flex flex-col md:flex-row justify-between items-end gap-4" style={{ animationDelay: '1500ms' }}>
-        <a
-          href="https://www.danmercede.com"
-          target="_blank"
-          rel="noreferrer"
-          className="text-neutral-400 font-sans text-sm tracking-tight italic hover:text-neutral-600 transition-colors"
-        >
-          Context: danmercede.com
-        </a>
-        <p className="text-neutral-400 font-sans text-sm tracking-tight text-right italic">
-          This page exists to provide context for the systems I build today.
-        </p>
+      <footer className="mt-20 md:mt-32 pt-12 border-t border-neutral-100 fade-in-up print:hidden flex flex-col gap-6" style={{ animationDelay: '1500ms' }}>
+        <div className="flex flex-col items-center gap-1">
+          <a
+            href="https://www.orionintelligenceagency.com/book"
+            target="_blank"
+            rel="noreferrer"
+            className="text-neutral-900 font-sans text-sm font-medium tracking-wide hover:underline underline-offset-4 transition-colors"
+          >
+            Book a Runtime Governance Readiness Scan &rarr;
+          </a>
+          <span className="text-neutral-400 font-sans text-xs tracking-tight">
+            Gap map &bull; Failure heatmap &bull; Enforcement checklist &bull; 30/60/90 plan
+          </span>
+        </div>
+        <div className="flex flex-col md:flex-row justify-between items-end gap-4">
+          <a
+            href="https://www.danmercede.com"
+            target="_blank"
+            rel="noreferrer"
+            className="text-neutral-400 font-sans text-sm tracking-tight italic hover:text-neutral-600 transition-colors"
+          >
+            Context: danmercede.com
+          </a>
+          <p className="text-neutral-400 font-sans text-sm tracking-tight text-right italic">
+            This page exists to provide context for the systems I build today.
+          </p>
+        </div>
       </footer>
     </article>
   );
