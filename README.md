@@ -87,7 +87,7 @@ The site is a static Vite build: `npm run build` emits `dist/`, which can be ser
 | `App.tsx` | Root layout wrapper |
 | `components/Biography.tsx` | The entire page content |
 | `components/PullQuote.tsx` | Pull-quote block used inside the biography |
-| `constants.ts` | `IMAGE_METADATA` alt/description map + `getImageMeta` helper (fails loud in dev, falls back safely in prod) |
+| `constants.ts` | `IMAGE_METADATA` alt/description map + `getImageMeta` helper (fails loudly in dev, falls back safely in prod) |
 | `public/` | Portrait images, favicons, `site.webmanifest`, `robots.txt`, `sitemap.xml` |
 | `vite.config.ts`, `tsconfig.json` | Build and TypeScript config |
 
