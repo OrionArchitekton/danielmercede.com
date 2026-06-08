@@ -111,7 +111,7 @@ It intentionally avoids overlap with product, platform, or commercial messaging 
 Referenced for context only. These are external identity and project surfaces, not artifacts built or deployed from this repository:
 
 - `danmercede.com` — related identity hub (linked from the site footer as "Context")
-- **Orion Intelligence Agency** — the booking CTA target (https://www.orionintelligenceagency.com/book), the only external link wired into the page code
+- **Orion Intelligence Agency** — the booking CTA target (https://www.orionintelligenceagency.com/book), one of the external links wired into the page code
 - **Cosmocrat**, **ReplyBy**, **Apex Trading Systems** — affiliated systems maintained in separate repositories and domains
 
 ---
