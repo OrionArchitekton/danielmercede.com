@@ -54,6 +54,11 @@ npm run preview    # serve built dist/ locally
 
 ## Estate Authority
 
-- Estate doctrine: `/home/orion/src/orion-estate/platform/orion-estate-audit/AGENTS.md`
-- Repo contract: `orion-estate-audit/architecture/repo_contracts/dan_mercede_personal_brand_repo_contract_20260318.md`
-- Canonical home + placement: `orion-estate-audit/estate_home_registry.yaml`, logical_id `personal-brand-dan-mercede-danielmercede-com`
+All three references below live in the `orion-estate-audit` repo (sibling
+estate repo, not in this checkout):
+
+- Estate doctrine: `orion-estate-audit/AGENTS.md`
+- Repo contract:
+  `orion-estate-audit/architecture/repo_contracts/dan_mercede_personal_brand_repo_contract_20260318.md`
+- Canonical home + placement: `orion-estate-audit/estate_home_registry.yaml`,
+  logical_id `personal-brand-dan-mercede-danielmercede-com`
