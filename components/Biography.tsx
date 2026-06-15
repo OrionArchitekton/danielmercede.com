@@ -16,7 +16,7 @@ export const Biography: React.FC = () => {
     window.print();
   };
 
-  const portraitSrc = "/dan-mercede-founder-working-portrait.png";
+  const portraitSrc = "/dan-mercede-founder-working-portrait.webp";
   const portraitMeta = getImageMeta(portraitSrc);
 
   return (
@@ -29,7 +29,7 @@ export const Biography: React.FC = () => {
           </h1>
           <button
             onClick={handlePrint}
-            className="text-xs font-sans text-neutral-400 hover:text-neutral-600 transition-colors uppercase tracking-wider fade-in-up print:hidden cursor-pointer"
+            className="text-xs font-sans text-neutral-500 hover:text-neutral-600 transition-colors uppercase tracking-wider fade-in-up print:hidden cursor-pointer"
             style={{ animationDelay: '100ms' }}
             aria-label="Print this biography"
           >
@@ -140,9 +140,9 @@ export const Biography: React.FC = () => {
             rel="noreferrer"
             className="text-neutral-900 font-sans text-sm font-medium tracking-wide hover:underline underline-offset-4 transition-colors"
           >
-            Book a Runtime Governance Readiness Scan &rarr;
+            Book a Runtime Governance Readiness Scan <span aria-hidden="true">&rarr;</span><span className="sr-only"> (opens in a new tab)</span>
           </a>
-          <span className="text-neutral-400 font-sans text-xs tracking-tight">
+          <span className="text-neutral-500 font-sans text-xs tracking-tight">
             Gap map &bull; Failure heatmap &bull; Enforcement checklist &bull; 30/60/90 plan
           </span>
         </div>
@@ -151,11 +151,11 @@ export const Biography: React.FC = () => {
             href="https://www.danmercede.com"
             target="_blank"
             rel="noreferrer"
-            className="text-neutral-400 font-sans text-sm tracking-tight italic hover:text-neutral-600 transition-colors"
+            className="text-neutral-500 font-sans text-sm tracking-tight italic hover:text-neutral-600 transition-colors"
           >
-            Context: danmercede.com
+            Context: danmercede.com<span className="sr-only"> (opens in a new tab)</span>
           </a>
-          <p className="text-neutral-400 font-sans text-sm tracking-tight text-right italic">
+          <p className="text-neutral-500 font-sans text-sm tracking-tight text-right italic">
             This page exists to provide context for the systems I build today.
           </p>
         </div>

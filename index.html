@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daniel Mercede — Systems Architect & Technology Executive</title>
+  <title>Daniel Mercede — Runtime Governance Architect</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -18,35 +18,48 @@
   <meta property="og:site_name" content="Daniel Mercede" />
   <meta property="og:title" content="Daniel Mercede" />
   <meta property="og:description"
-    content="Systems architect. Operational realist. Building at the intersection of logic, responsibility, and human dynamics." />
-  <meta property="og:url" content="https://www.danielmercede.com" />
-  <meta property="og:image" content="https://www.danielmercede.com/dan-mercede-founder-working-portait.webp" />
+    content="Runtime governance architect. Building governed AI systems that fail closed, enforce authority, and generate audit-grade receipts." />
+  <meta property="og:url" content="https://www.danielmercede.com/" />
+  <meta property="og:image" content="https://www.danielmercede.com/dan-mercede-og-card.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Daniel Mercede — runtime governance architect" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Daniel Mercede" />
-  <meta name="twitter:description" content="Systems architect. Operational realist." />
-  <meta name="twitter:image" content="https://www.danielmercede.com/dan-mercede-founder-working-portait.webp" />
+  <meta name="twitter:description"
+    content="Runtime governance architect. Building governed AI systems that fail closed, enforce authority, and generate audit-grade receipts." />
+  <meta name="twitter:image" content="https://www.danielmercede.com/dan-mercede-og-card.jpg" />
+  <meta name="twitter:image:alt" content="Daniel Mercede — runtime governance architect" />
 
   <meta name="description"
-    content="Long-form biography and professional context for Daniel Mercede, a systems architect building at the intersection of logic, responsibility, and human dynamics." />
+    content="Long-form biography and professional context for Daniel Mercede, a runtime governance architect building governed AI systems that fail closed, enforce authority, and generate audit-grade receipts." />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "Person",
+          "@id": "https://www.danielmercede.com/#person",
+          "name": "Daniel Mercede",
+          "url": "https://www.danielmercede.com/",
+          "jobTitle": "Runtime Governance Architect"
+        },
+        {
           "@type": "WebPage",
           "@id": "https://www.danielmercede.com/#webpage",
           "url": "https://www.danielmercede.com/",
           "name": "Daniel Mercede — Bio",
-          "about": { "@id": "https://www.danmercede.com/#person" },
+          "about": { "@id": "https://www.danielmercede.com/#person" },
           "isPartOf": { "@id": "https://www.danielmercede.com/#website" }
         },
         {
           "@type": "WebSite",
           "@id": "https://www.danielmercede.com/#website",
           "url": "https://www.danielmercede.com/",
-          "publisher": { "@id": "https://www.danmercede.com/#person" }
+          "publisher": { "@id": "https://www.danielmercede.com/#person" }
         }
       ]
     }
@@ -79,6 +92,23 @@
       body {
         background-color: white !important;
         color: black !important;
+      }
+    }
+
+    /* Respect users who request reduced motion: skip the entrance animation
+       (and never leave content stuck at opacity:0) and the grayscale fade. */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in-up {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      *, ::before, ::after {
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+        animation-duration: 0s !important;
+        animation-delay: 0s !important;
       }
     }
   </style>

@@ -52,7 +52,7 @@ export const IMAGE_METADATA = {
         description:
             "Landscape image of Dan Mercede actively working on governed AI system architecture and execution.",
     },
-    "dan-mercede-founder-working-portrait.png": {
+    "dan-mercede-founder-working-portrait.webp": {
         alt: "Dan Mercede working as founder and systems architect on governed AI systems",
         description:
             "Portrait of Dan Mercede in a focused working setting, emphasizing hands-on system building and AI governance.",
