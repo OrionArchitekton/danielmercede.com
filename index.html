@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Resource hints: warm the Google Fonts origins early (connection only, non-blocking) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <title>Daniel Mercede — Founder & AI Systems Architect</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -28,6 +31,8 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@danmercede" />
+  <meta name="twitter:creator" content="@danmercede" />
   <meta name="twitter:title" content="Daniel Mercede" />
   <meta name="twitter:description"
     content="Runtime governance architect. Building governed AI systems that fail closed, enforce authority, and generate audit-grade receipts." />
@@ -58,9 +63,11 @@
     }
     </script>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font CSS placed after the synchronous Tailwind script so slow/unavailable
+       fonts.googleapis.com cannot parser-block Tailwind execution or React startup. -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
-
     /* Custom utility for smooth fade-in */
     .fade-in-up {
       animation: fadeInUp 1s ease-out forwards;
