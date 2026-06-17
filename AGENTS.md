@@ -30,8 +30,16 @@ promotion — explicitly not a portfolio, product site, or marketing surface.
 ## Start Here
 
 - [README.md](README.md) — purpose, stack, structure, deploy notes
-- [components/Biography.tsx](components/Biography.tsx) — the entire page
-- [index.html](index.html) — SEO meta, JSON-LD, Tailwind CDN, esm.sh importmap
+- [components/Biography.tsx](components/Biography.tsx) — the entire page (renders
+  copy from `bioContent.mjs`)
+- [bioContent.mjs](bioContent.mjs) — canonical bio copy shared by the React
+  render and the build-time body-bake emitter
+- [scripts/bakeBody.mjs](scripts/bakeBody.mjs) — postbuild body-bake: injects the
+  real crawlable `<body>` (h1 + prose) into `dist/index.html` for no-JS answer
+  engines; runs after `vite build` (no SSR, no framework)
+- [index.html](index.html) — SEO meta, JSON-LD (ProfilePage), Tailwind CDN
+- [vercel.json](vercel.json) — immutable cache headers for hashed `/assets/*`;
+  no SPA rewrite (1-route bio keeps real-404 on unknown paths)
 - [constants.ts](constants.ts) — image metadata map
 - [vite.config.ts](vite.config.ts) — build config
 

@@ -38,9 +38,11 @@ The site is heavily SEO-scaffolded: canonical link, Open Graph and Twitter meta,
 - **TypeScript** `~5.8.2`
 - **Tailwind CSS** — loaded from the CDN (`cdn.tailwindcss.com`), not an npm dependency
 - **Google Fonts** — Inter (sans) and Lora (serif)
-- React itself is resolved at runtime via an **esm.sh importmap** declared in `index.html`
+- React is bundled by Vite (the prior esm.sh importmap was inert — Vite already bundled React — and has been removed)
 
 No backend, no API, no router, no test suite. The build output is plain static files.
+
+A postbuild **body-bake** step (`scripts/bakeBody.mjs`, run by `npm run build` after `vite build`) injects the real biography `<body>` markup into `dist/index.html` so non-Google answer engines (which fetch raw HTML without executing JS) can read the page. The copy lives once in `bioContent.mjs`, shared by the React render and the baked HTML.
 
 ---
 
@@ -82,11 +84,14 @@ The site is a static Vite build: `npm run build` emits `dist/`, which can be ser
 
 | Path | Purpose |
 |------|---------|
-| `index.html` | HTML shell: SEO meta, JSON-LD, Tailwind CDN, fonts, esm.sh importmap |
+| `index.html` | HTML shell: SEO meta, JSON-LD (ProfilePage), Tailwind CDN, fonts |
 | `index.tsx` | React mount point |
-| `App.tsx` | Root layout wrapper |
-| `components/Biography.tsx` | The entire page content |
+| `App.tsx` | Root layout wrapper (skip-to-content link, `#main-content`) |
+| `components/Biography.tsx` | The entire page content (renders `bioContent.mjs`) |
 | `components/PullQuote.tsx` | Pull-quote block used inside the biography |
+| `bioContent.mjs` | Canonical bio copy shared by the React render and the body-bake |
+| `scripts/bakeBody.mjs` | Postbuild body-bake: real crawlable `<body>` into `dist/index.html` |
+| `vercel.json` | Immutable cache headers for hashed `/assets/*` (no SPA rewrite) |
 | `constants.ts` | `IMAGE_METADATA` alt/description map + `getImageMeta` helper (fails loudly in dev, falls back safely in prod) |
 | `public/` | Portrait images, favicons, `site.webmanifest`, `robots.txt`, `sitemap.xml` |
 | `vite.config.ts`, `tsconfig.json` | Build and TypeScript config |
