@@ -20,7 +20,9 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { HEADING, STANDFIRST, BODY_BLOCKS } from '../bioContent.mjs';
 
-const DIST_INDEX = path.resolve(process.cwd(), 'dist', 'index.html');
+// Resolve relative to this script (scripts/), not the caller's cwd, so the bake
+// works regardless of where `npm run build` is invoked from. (Node 22+.)
+const DIST_INDEX = path.resolve(import.meta.dirname, '..', 'dist', 'index.html');
 
 // Minimal HTML-escape for text interpolated into the baked markup.
 function esc(s) {
@@ -40,7 +42,14 @@ function renderBlocks() {
         '</blockquote></div>'
       );
     }
-    return `<p class="mb-8">${esc(block.text)}</p>`;
+    if (block.type === 'p') {
+      return `<p class="mb-8">${esc(block.text)}</p>`;
+    }
+    // Fail the build on an unknown block type rather than silently degrading a
+    // new type to a paragraph (keeps the bake and Biography.tsx render honest).
+    throw new Error(
+      `Unknown BODY_BLOCKS type '${block.type}' in bioContent.mjs — add a renderer in scripts/bakeBody.mjs (and components/Biography.tsx).`,
+    );
   }).join('\n        ');
 }
 
@@ -69,18 +78,24 @@ async function main() {
     throw new Error(`${DIST_INDEX} not found — run \`vite build\` first.`);
   });
 
-  const ROOT_EMPTY = '<div id="root"></div>';
-  if (!html.includes(ROOT_EMPTY)) {
+  // Match the empty mount tolerantly: minifiers/formatters may alter quote style
+  // or whitespace (e.g. id=root, single quotes, a space between the tags).
+  const rootRegex = /<div\s+id=["']?root["']?>\s*<\/div>/i;
+  if (!rootRegex.test(html)) {
     throw new Error(
-      `Empty root mount '${ROOT_EMPTY}' not found in dist/index.html — body-bake anchor missing (did the React mount node change?).`,
+      'Empty root mount (<div id="root"></div>) not found in dist/index.html — body-bake anchor missing (did the React mount node change?).',
     );
   }
 
   const baked = `<div id="root">${renderBakedBody()}</div>`;
-  const out = html.replace(ROOT_EMPTY, baked);
+  const out = html.replace(rootRegex, baked);
 
   // Guard: prove the served body now carries real crawlable content.
-  const body = out.slice(out.indexOf('<body'));
+  const bodyMatch = out.match(/<body[^>]*>/i);
+  if (!bodyMatch) {
+    throw new Error('<body> tag not found in dist/index.html — cannot verify the bake.');
+  }
+  const body = out.slice(bodyMatch.index);
   const h1Count = (body.match(/<h1[ >]/g) || []).length;
   const pCount = (body.match(/<p[ >]/g) || []).length;
   if (h1Count < 1 || pCount < 1) {
