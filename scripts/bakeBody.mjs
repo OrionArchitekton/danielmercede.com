@@ -18,6 +18,7 @@
 
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { HEADING, STANDFIRST, BODY_BLOCKS } from '../bioContent.mjs';
 
 // Resolve relative to this script (scripts/), not the caller's cwd, so the bake
@@ -56,7 +57,9 @@ function renderBlocks() {
 // The baked markup mirrors components/Biography.tsx structure/classes closely
 // enough to read identically pre-hydration, with no fade-in opacity:0 (so no-JS
 // crawlers and readers always see content, never a blank animated-out body).
-function renderBakedBody() {
+// Exported so tests/bodyBake.test.mjs can assert render parity without invoking
+// the file-writing build step.
+export function renderBakedBody() {
   return (
     '<div class="min-h-screen w-full flex justify-center py-12 px-6 sm:px-8 md:py-24">' +
     '<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-neutral-900 focus:text-white focus:rounded">Skip to content</a>' +
@@ -111,7 +114,13 @@ async function main() {
   );
 }
 
-main().catch((err) => {
-  console.error('[bakeBody] FAILED:', err instanceof Error ? err.message : err);
-  process.exit(1);
-});
+// Run the bake only when executed directly (`node scripts/bakeBody.mjs` in the
+// build step), not when imported by tests/bodyBake.test.mjs.
+const isMain =
+  process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isMain) {
+  main().catch((err) => {
+    console.error('[bakeBody] FAILED:', err instanceof Error ? err.message : err);
+    process.exit(1);
+  });
+}

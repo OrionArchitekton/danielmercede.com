@@ -22,7 +22,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="profile" />
   <meta property="og:site_name" content="Daniel Mercede" />
-  <meta property="og:title" content="Daniel Mercede" />
+  <meta property="og:title" content="Daniel Mercede — Founder & AI Systems Architect" />
   <meta property="og:description"
     content="Runtime governance architect. Building governed AI systems that fail closed, enforce authority, and generate audit-grade receipts." />
   <meta property="og:url" content="https://www.danielmercede.com/" />
@@ -36,7 +36,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@danmercede" />
   <meta name="twitter:creator" content="@danmercede" />
-  <meta name="twitter:title" content="Daniel Mercede" />
+  <meta name="twitter:title" content="Daniel Mercede — Founder & AI Systems Architect" />
   <meta name="twitter:description"
     content="Runtime governance architect. Building governed AI systems that fail closed, enforce authority, and generate audit-grade receipts." />
   <meta name="twitter:image" content="https://www.danielmercede.com/dan-mercede-og-card.jpg" />
@@ -66,74 +66,12 @@
       ]
     }
     </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font CSS placed after the synchronous Tailwind script so slow/unavailable
-       fonts.googleapis.com cannot parser-block Tailwind execution or React startup. -->
+  <!-- Tailwind is bundled at build time (compiled stylesheet emitted by Vite);
+       the render-blocking Tailwind CDN JIT compiler and the inline
+       `tailwind.config` / base <style> have moved to tailwind.config.js +
+       index.css. Font CSS is non-blocking (preconnect above warms the origin). -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" />
-  <style>
-    /* Custom utility for smooth fade-in */
-    .fade-in-up {
-      animation: fadeInUp 1s ease-out forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media print {
-      .fade-in-up {
-        animation: none !important;
-        opacity: 1 !important;
-        transform: none !important;
-      }
-
-      body {
-        background-color: white !important;
-        color: black !important;
-      }
-    }
-
-    /* Respect users who request reduced motion: skip the entrance animation
-       (and never leave content stuck at opacity:0) and the grayscale fade. */
-    @media (prefers-reduced-motion: reduce) {
-      .fade-in-up {
-        animation: none !important;
-        opacity: 1 !important;
-        transform: none !important;
-      }
-
-      *, ::before, ::after {
-        transition-duration: 0s !important;
-        transition-delay: 0s !important;
-        animation-duration: 0s !important;
-        animation-delay: 0s !important;
-      }
-    }
-  </style>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            serif: ['Lora', 'serif'],
-          },
-          colors: {
-            neutral: {
-              850: '#1f1f1f',
-              900: '#171717',
-            }
-          }
-        },
-      },
-    }
-  </script>
 </head>
 
 <body class="bg-[#FCFCFC] text-neutral-800 antialiased selection:bg-neutral-200 selection:text-neutral-900">
