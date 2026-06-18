@@ -5,12 +5,8 @@
 // lost). Plain node:test — no extra deps. Run via `npm test`.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { renderBakedBody } from '../scripts/bakeBody.mjs';
+import { renderBakedBody, esc } from '../scripts/bakeBody.mjs';
 import { HEADING, STANDFIRST, BODY_BLOCKS } from '../bioContent.mjs';
-
-// Mirror the escape bakeBody.mjs applies to interpolated text.
-const esc = (s) =>
-  String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 const baked = renderBakedBody();
 
