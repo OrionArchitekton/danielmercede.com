@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base/custom styles moved out of the inline index.html <style> when Tailwind
+   was bundled. The cdn.tailwindcss.com JIT compiler is gone; these are emitted
+   into the bundled stylesheet so the served page renders identically. */
+
+/* Custom utility for smooth fade-in */
+.fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media print {
+  .fade-in-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+}
+
+/* Respect users who request reduced motion: skip the entrance animation
+   (and never leave content stuck at opacity:0) and the grayscale fade. */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  *, ::before, ::after {
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
