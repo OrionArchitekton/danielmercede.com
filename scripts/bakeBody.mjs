@@ -26,7 +26,8 @@ import { HEADING, STANDFIRST, BODY_BLOCKS } from '../bioContent.mjs';
 const DIST_INDEX = path.resolve(import.meta.dirname, '..', 'dist', 'index.html');
 
 // Minimal HTML-escape for text interpolated into the baked markup.
-function esc(s) {
+// Exported so tests/bodyBake.test.mjs can reuse the exact escape (no drift).
+export function esc(s) {
   return String(s)
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -116,8 +117,12 @@ async function main() {
 
 // Run the bake only when executed directly (`node scripts/bakeBody.mjs` in the
 // build step), not when imported by tests/bodyBake.test.mjs.
+// Compare case-insensitively: on some platforms (notably Windows) the cwd-based
+// argv[1] path and the import.meta.url path can differ only in casing (e.g. drive
+// letters), which would make isMain false and silently skip the bake.
 const isMain =
-  process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+  process.argv[1] &&
+  path.resolve(process.argv[1]).toLowerCase() === fileURLToPath(import.meta.url).toLowerCase();
 if (isMain) {
   main().catch((err) => {
     console.error('[bakeBody] FAILED:', err instanceof Error ? err.message : err);
