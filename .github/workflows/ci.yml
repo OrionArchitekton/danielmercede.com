@@ -1,0 +1,64 @@
+name: CI
+
+# Round-2 R8/R9 — first CI for this thin spoke.
+# Builds the site and asserts the BUILT/served dist/index.html crawler body is
+# non-empty. This site is a client-rendered React SPA whose raw <body> is an
+# empty <div id="root"></div>; scripts/bakeBody.mjs (run as a postbuild step in
+# `npm run build`) bakes the real <h1>/<p> biography prose into the served
+# dist/index.html so non-JS answer engines (GPTBot, Perplexity, Claude) can read
+# it. This gate guards the empty-body regression class on the served DOM itself,
+# not the emitter string.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # No committed lockfile on these thin spokes — install, never `npm ci`,
+      # and never stage a generated lockfile.
+      - name: Install dependencies
+        run: npm install
+
+      - name: Test
+        run: npm test --if-present
+
+      - name: Build
+        run: npm run build
+
+      # R9 — assert the BUILT/served dist/index.html crawler <body> is non-empty.
+      # Vite output dir is the default (dist/); the bake postbuild writes the
+      # crawlable body into dist/index.html. Count <h1 and <p in the built file
+      # and fail if either is 0 (the empty-body regression we are guarding).
+      - name: Bake-output assertion (built dist/index.html crawler body non-empty)
+        run: |
+          set -euo pipefail
+          BUILT="dist/index.html"
+          if [ ! -f "$BUILT" ]; then
+            echo "FAIL: built $BUILT not found after build" >&2
+            exit 1
+          fi
+          # Restrict to the <body> so we count the served crawler body, not <head>.
+          BODY="$(awk 'BEGIN{IGNORECASE=1} /<body/{f=1} f{print}' "$BUILT")"
+          H1=$(printf '%s' "$BODY" | grep -o -i -E '<h1[ >]' | wc -l | tr -d ' ')
+          P=$(printf '%s' "$BODY" | grep -o -i -E '<p[ >]' | wc -l | tr -d ' ')
+          echo "baked crawler body counts: h1=$H1 p=$P (file=$BUILT)"
+          if [ "$H1" -lt 1 ] || [ "$P" -lt 1 ]; then
+            echo "FAIL: served crawler body is empty (h1=$H1, p=$P) — empty-body regression in $BUILT" >&2
+            exit 1
+          fi
+          echo "PASS: served crawler body is non-empty (h1=$H1, p=$P)"
