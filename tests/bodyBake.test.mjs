@@ -10,6 +10,16 @@ import { HEADING, STANDFIRST, BODY_BLOCKS } from '../bioContent.mjs';
 
 const baked = renderBakedBody();
 
+// Independent escape oracle: assert esc() against hard-coded expected output so a
+// regression in the production escape logic is caught here, even though the parity
+// assertions below reuse esc() (which alone would track a broken implementation).
+test('esc escapes &, <, > to entities', () => {
+  assert.equal(esc('a & b'), 'a &amp; b');
+  assert.equal(esc('<script>'), '&lt;script&gt;');
+  assert.equal(esc('Tom & Jerry <3 > 2'), 'Tom &amp; Jerry &lt;3 &gt; 2');
+  assert.equal(esc('plain text'), 'plain text');
+});
+
 test('baked body is a non-empty string', () => {
   assert.equal(typeof baked, 'string');
   assert.ok(baked.length > 0);
