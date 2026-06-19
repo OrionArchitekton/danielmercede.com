@@ -1,0 +1,61 @@
+name: Prod Smoke
+
+# Round-2 R5 — post-deploy synthetic smoke (creds-free).
+#
+# Catches the "empty body survives CI because CI tests the BUILD not the SERVED
+# output" class: ci.yml asserts the built dist/index.html, but a broken deploy,
+# bad rewrite, or stripped prerender could serve an empty body in production
+# while CI stays green. This workflow curls the LIVE prod URL and asserts the
+# served HTML carries real crawler-readable content + the identity JSON-LD.
+#
+# Mirrors ci.yml's "Bake-output assertion" grep idiom (grep -o -i -E counts of
+# <h1 / <p in the served body) and adds a JSON-LD presence assertion. Pure
+# curl+grep — no secrets, no build, no checkout of source needed.
+
+on:
+  schedule:
+    # Unique minute for this repo across the brand-web fleet.
+    - cron: '35 13 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl prod and assert served crawler body + JSON-LD
+        run: |
+          set -euo pipefail
+          URL="https://danielmercede.com"
+          echo "Fetching $URL"
+          HTML="$(curl -sL --fail --max-time 30 "$URL")"
+
+          if [ -z "$HTML" ]; then
+            echo "FAIL: empty response body from $URL" >&2
+            exit 1
+          fi
+
+          # Mirror ci.yml's grep idiom: count <h1 / <p tags in the served HTML.
+          H1=$(printf '%s' "$HTML" | grep -o -i -E '<h1[ >]' | wc -l | tr -d ' ')
+          P=$(printf '%s' "$HTML" | grep -o -i -E '<p[ >]' | wc -l | tr -d ' ')
+          # JSON-LD grep tolerant of attribute order / spacing / quote style.
+          LD=$(printf '%s' "$HTML" | grep -o -i -E '<script[^>]*type=["'"'"']?application/ld\+json' | wc -l | tr -d ' ')
+
+          echo "served counts: h1=$H1 p=$P jsonld=$LD (url=$URL)"
+
+          if [ "$H1" -lt 1 ]; then
+            echo "FAIL: served body assertion failed — no <h1> found at $URL (empty/broken served body)" >&2
+            exit 1
+          fi
+          if [ "$P" -lt 1 ]; then
+            echo "FAIL: served body assertion failed — no <p> found at $URL (empty/broken served body)" >&2
+            exit 1
+          fi
+          if [ "$LD" -lt 1 ]; then
+            echo "FAIL: structured-data assertion failed — no <script type=\"application/ld+json\"> block found at $URL" >&2
+            exit 1
+          fi
+
+          echo "PASS: served body non-empty and JSON-LD present (h1=$H1, p=$P, jsonld=$LD)"
