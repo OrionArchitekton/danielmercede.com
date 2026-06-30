@@ -72,7 +72,7 @@ git diff --check
 ```
 
 For implementation changes, follow `AGENTS.md`; this repo declares `npm run
-build`, `npm run dev`, and `npm run preview` but has no test or lint scripts.
+build`, `npm test`, `npm run dev`, and `npm run preview` but has no lint script.
 
 ## Basis
 
