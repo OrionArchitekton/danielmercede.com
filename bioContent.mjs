@@ -1,4 +1,4 @@
-// Canonical biography content — single source of truth for BOTH the React
+// Canonical biography content, single source of truth for BOTH the React
 // render (components/Biography.tsx) and the build-time body-bake emitter
 // (scripts/bakeBody.mjs). Keeping the copy here prevents the served (crawlable)
 // <body> from drifting away from the hydrated client render.
@@ -26,7 +26,7 @@ export const BODY_BLOCKS = [
   },
   {
     type: 'p',
-    text: 'During high school, my family moved to Lausanne, Switzerland. Living abroad at that age recalibrated how I saw the world. Different languages, different systems, different expectations — all operating coherently without my home culture as the default. It forced adaptability, curiosity, and perspective.',
+    text: 'During high school, my family moved to Lausanne, Switzerland. Living abroad at that age recalibrated how I saw the world. Different languages, different systems, different expectations, all operating coherently without my home culture as the default. It forced adaptability, curiosity, and perspective.',
   },
   {
     type: 'quote',
@@ -34,7 +34,7 @@ export const BODY_BLOCKS = [
   },
   {
     type: 'p',
-    text: 'Over the years, I’ve lived and worked across Canada, Switzerland, Wisconsin, Ohio, California, and Connecticut. Each place added a layer: structure, pragmatism, scale, pace. I’ve always been drawn to environments where systems either succeed or fail visibly — and where outcomes are measurable.',
+    text: 'Over the years, I’ve lived and worked across Canada, Switzerland, Wisconsin, Ohio, California, and Connecticut. Each place added a layer: structure, pragmatism, scale, pace. I’ve always been drawn to environments where systems either succeed or fail visibly, and where outcomes are measurable.',
   },
   {
     type: 'quote',
@@ -42,15 +42,15 @@ export const BODY_BLOCKS = [
   },
   {
     type: 'p',
-    text: 'My professional path hasn’t been linear, but it has been consistent. I’ve worked in operations, finance, sales leadership, and executive management. Before building technology systems, I ran real ones — teams, revenue lines, daily execution cadences. I learned what survives stress, what scales cleanly, and what compounds without attention.',
+    text: 'My professional path hasn’t been linear, but it has been consistent. I’ve worked in operations, finance, sales leadership, and executive management. Before building technology systems, I ran real ones: teams, revenue lines, daily execution cadences. I learned what survives stress, what scales cleanly, and what compounds without attention.',
   },
   {
     type: 'p',
-    text: 'That operational grounding is what ultimately pulled me into systems architecture. I didn’t come to technology from theory or novelty — I came to it because manual systems hit their limits. Complexity increases, decisions multiply, and without structure, organizations drift. I became interested in how intelligence could augment execution without replacing accountability.',
+    text: 'That operational grounding is what ultimately pulled me into systems architecture. I didn’t come to technology from theory or novelty. I came to it because manual systems hit their limits. Complexity increases, decisions multiply, and without structure, organizations drift. I became interested in how intelligence could augment execution without replacing accountability.',
   },
   {
     type: 'p',
-    text: 'Today, my work sits at the intersection of logic and responsibility. I’m analytical by nature — precise, structured, outcome-oriented — but I’m also deeply aware that systems shape human behavior. Intelligence without values becomes unstable. Automation without governance becomes risk. The goal is not maximum speed or novelty; it’s alignment.',
+    text: 'Today, my work sits at the intersection of logic and responsibility. I’m analytical by nature, precise, structured, outcome-oriented, but I’m also deeply aware that systems shape human behavior. Intelligence without values becomes unstable. Automation without governance becomes risk. The goal is not maximum speed or novelty; it’s alignment.',
   },
   {
     type: 'quote',
@@ -58,10 +58,10 @@ export const BODY_BLOCKS = [
   },
   {
     type: 'p',
-    text: 'There’s also a quieter dimension to my work that doesn’t show up on résumés. I’ve always held a balance between rational analysis and inner awareness — a respect for intuition, pattern recognition, and long-term consequence. Logic determines how systems function; wisdom determines whether they should.',
+    text: 'There’s also a quieter dimension to my work that doesn’t show up on résumés. I’ve always held a balance between rational analysis and inner awareness, a respect for intuition, pattern recognition, and long-term consequence. Logic determines how systems function; wisdom determines whether they should.',
   },
   {
     type: 'p',
-    text: 'That balance — technical rigor paired with ethical restraint — is the throughline in everything I build.',
+    text: 'That balance, technical rigor paired with ethical restraint, is the throughline in everything I build.',
   },
 ];
