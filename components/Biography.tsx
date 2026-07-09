@@ -82,10 +82,10 @@ export const Biography: React.FC = () => {
             rel="noreferrer"
             className="text-neutral-900 font-sans text-sm font-medium tracking-wide hover:underline underline-offset-4 transition-colors"
           >
-            Book a Runtime Governance Readiness Scan <span aria-hidden="true">&rarr;</span><span className="sr-only"> (opens in a new tab)</span>
+            Work with OIA on one workflow <span aria-hidden="true">&rarr;</span><span className="sr-only"> (opens in a new tab)</span>
           </a>
           <span className="text-neutral-500 font-sans text-xs tracking-tight">
-            Gap map &bull; Failure heatmap &bull; Enforcement checklist &bull; 30/60/90 plan
+            Strategy &bull; Leadership &bull; Engineering &bull; Agents
           </span>
         </div>
         <div className="flex flex-col md:flex-row justify-between items-end gap-4">
