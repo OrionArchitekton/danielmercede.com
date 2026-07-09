@@ -11,7 +11,7 @@
 export const HEADING = 'Daniel Mercede';
 
 export const STANDFIRST =
-  'Runtime governance architect. Building governed AI systems that fail closed, enforce authority, and generate audit-grade receipts.';
+  'Operator and systems builder. Helping teams turn AI from experiments into owned, governed workflows they can run, with governance and reliability as proof depth.';
 
 // Ordered body blocks. type 'p' = paragraph, type 'quote' = pull-quote.
 // The React component and the baked HTML render this same sequence.
